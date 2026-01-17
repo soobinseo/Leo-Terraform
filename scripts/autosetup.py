@@ -102,7 +102,6 @@ def download_config_files():
         (".zshrc", "https://raw.githubusercontent.com/Fitree/dev-env-setup/refs/heads/main/configs/zshrc"),
         (".p10k.zsh", "https://raw.githubusercontent.com/Fitree/dev-env-setup/refs/heads/main/configs/p10k.zsh"),
         (".tmux.conf", "https://raw.githubusercontent.com/Fitree/dev-env-setup/refs/heads/main/configs/tmux.conf"),
-        ("opencode.json", "https://raw.githubusercontent.com/Fitree/DevEnvSetup/refs/heads/main/configs/opencode.json")
     ]
 
     home = Path.home()
