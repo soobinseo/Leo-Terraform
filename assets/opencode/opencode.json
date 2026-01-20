@@ -6,6 +6,8 @@
         "messages_half_page_down": "pagedown",
         "messages_page_up": "ctrl+alt+u",
         "messages_page_down": "ctrl+alt+d",
+        "messages_first": "ctrl+g,home",
+        "messages_last": "ctrl+alt+g,end",
         "messages_previous": "ctrl+pageup",
         "messages_next": "ctrl+pagedown",
         "input_line_home": "home",

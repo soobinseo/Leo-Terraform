@@ -1,0 +1,51 @@
+{
+    "stages": [
+        {
+            "name": "check_requirements",
+            "requirements": ["zsh", "git", "curl"]
+        },
+        {"name": "try_install_oh_my_zsh"},
+        {"name": "try_install_p10k"},
+        {"name": "try_install_zsh_autosuggestions"},
+        {"name": "try_install_zsh_syntax_highlighting"},
+        {
+            "name": "copy_files",
+            "path_mappings": [
+                {
+                    "src": "assets/terminal_env/zshrc",
+                    "dst": "~/.zshrc"
+                },
+                {
+                    "src": "assets/terminal_env/p10k.zsh",
+                    "dst": "~/.p10k.zsh"
+                },
+                {
+                    "src": "assets/terminal_env/tmux.conf",
+                    "dst": "~/.tmux.conf"
+                },
+                {
+                    "src": "assets/terminal_env/gitconfig",
+                    "dst": "~/.gitconfig"
+                }
+            ]
+        },
+        {"name": "try_install_opencode"},
+        {
+            "name": "link_files",
+            "path_mappings": [
+                {
+                    "src": "assets/opencode/opencode.json",
+                    "dst": "~/.config/opencode/opencode.json"
+                },
+                {
+                    "src": "assets/opencode/agent",
+                    "dst": "~/.config/opencode/agent"
+                },
+                {
+                    "src": "assets/opencode/plugins",
+                    "dst": "~/.config/opencode/plugins"
+                }
+            ]
+        }
+    ]
+}

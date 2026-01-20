@@ -129,3 +129,6 @@ refresh_vscode_ipc() {
     VSCODE_IPC_HOOK_CLI=$(ls -1t /tmp/vscode-ipc-* 2>/dev/null | head -n 1)
     echo "VSCODE_IPC_HOOK_CLI set to: $VSCODE_IPC_HOOK_CLI"
 }
+
+#Opencode
+export PATH="$HOME/.opencode/bin:$PATH"
