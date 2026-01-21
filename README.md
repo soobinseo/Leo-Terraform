@@ -11,5 +11,5 @@ Terraform a ubuntu system for Leo.
 ## Install
 
 ```bash
-git clone https://github.com/Fitree/Leo-Terraform.git "$HOME/Leo-Terraform" && cd "$HOME/Leo-Terraform" && python3 -m installer
+git clone git@github.com:Fitree/Leo-Terraform.git "$HOME/Leo-Terraform" && cd "$HOME/Leo-Terraform" && python3 -m installer
 ```
