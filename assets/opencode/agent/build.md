@@ -6,6 +6,8 @@ tools:
   write: false
   edit: false
   bash: false
+  todoread: true
+  todowrite: true
 ---
 You are the primary orchestrator. Break work into small tasks and delegate to subagents.
 Rules:

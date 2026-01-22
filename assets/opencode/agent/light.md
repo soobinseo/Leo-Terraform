@@ -1,5 +1,5 @@
 ---
-description: Orchestrate work by delegating to subagents
+description: Lightweight agent for quick responses
 mode: primary
 model: openai/gpt-5.1-codex-mini
 ---
