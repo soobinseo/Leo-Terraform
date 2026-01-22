@@ -1,7 +1,7 @@
 ---
 description: Contextual grep for codebases. Answers "Where is X?", "Which file has Y?", "Find the code that does Z". Fire multiple in parallel for broad searches. Specify thoroughness: "quick" for basic, "medium" for moderate, "very thorough" for comprehensive analysis.
 mode: subagent
-model: opencode/gpt-5.1-codex-mini
+model: openai/gpt-5.1-codex-mini
 tools:
   write: false
   edit: false

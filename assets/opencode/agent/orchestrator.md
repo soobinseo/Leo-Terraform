@@ -1,7 +1,7 @@
 ---
 description: Powerful AI Agent with orchestration capabilities
 mode: primary
-model: opencode/gpt-5.2
+model: openai/gpt-5.2
 tools:
   write: false
   edit: false

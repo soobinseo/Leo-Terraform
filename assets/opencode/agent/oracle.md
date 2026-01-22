@@ -1,7 +1,7 @@
 ---
 description: Read-only consultation agent. High-IQ reasoning specialist for debugging hard problems and high-difficulty architecture design.
 mode: subagent
-model: opencode/gpt-5.2
+model: openai/gpt-5.2
 tools:
   write: false
   edit: false
