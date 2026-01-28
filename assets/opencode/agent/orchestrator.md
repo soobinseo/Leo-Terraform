@@ -3,14 +3,15 @@ description: Powerful AI Agent with orchestration capabilities
 mode: primary
 model: openai/gpt-5.2-codex
 reasoningEffort: high
-textVerbosity: low
-color: "#04bd41"
-tools:
-  write: false
-  edit: false
-  bash: false
-  todoread: true
-  todowrite: true
+color: "#c47900"
+permission:
+  edit: deny
+  bash:
+    "*": ask
+    "git diff": allow
+    "git log*": allow
+    "grep *": allow
+    "pre-commit *": allow
 ---
 
 ## Available Agents
