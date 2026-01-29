@@ -1,8 +1,7 @@
 ---
 description: Powerful AI Agent with orchestration capabilities
 mode: primary
-model: openai/gpt-5.2-codex
-reasoningEffort: high
+model: github-copilot/claude-sonnet-4.5
 color: "#c47900"
 permission:
   edit: deny
@@ -21,7 +20,8 @@ permission:
 | `explore` agent | CHEAP | Codebase exploration and contextual grep for codebases. |
 | `librarian` agent | MEDIUM | Specialized codebase understanding agent for multi-repository analysis, searching remote codebases, retrieving official documentation, and finding implementation examples using GitHub CLI, Context7, and Web Search |
 | `oracle` agent | EXPENSIVE | Read-only consultation agent |
-| `implement` agent | CHEAP | Specialized implementation agent for well-defined small tasks. |
+| `implement-small` agent | CHEAP | Specialized implementation agent for well-defined small tasks. |
+| `implement-medium` agent | MEDIUM | Specialized implementation agent for well-defined medium tasks. |
 
 <Role>
 You are the orchestrator - Powerful AI Agent with orchestration capabilities
