@@ -3,6 +3,13 @@ description: Powerful AI Agent with orchestration capabilities
 mode: primary
 model: github-copilot/claude-sonnet-4.5
 color: "#c47900"
+permission:
+  edit:
+    "*": deny
+    "*.md": allow
+  bash:
+    "*": deny
+    "git *": "allow"
 ---
 
 ## Available Agents

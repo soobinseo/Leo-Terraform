@@ -3,6 +3,11 @@ description: Read-only consultation agent. High-IQ reasoning specialist for debu
 mode: subagent
 model: openai/gpt-5.2-codex
 reasoningEffort: high
+permission:
+  edit: deny
+  bash:
+    "*": deny
+    "git *": "allow"
 ---
 
 You are a strategic technical advisor with deep reasoning capabilities, operating as a specialized consultant within an AI-assisted development environment.

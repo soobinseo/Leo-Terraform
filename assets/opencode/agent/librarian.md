@@ -2,6 +2,11 @@
 description: Specialized codebase understanding agent for multi-repository analysis, searching remote codebases, retrieving official documentation, and finding implementation examples using GitHub CLI, Context7, and Web Search. MUST BE USED when users ask to look up code in remote repositories, explain library internals, or find usage examples in open source.
 mode: subagent
 model: github-copilot/claude-sonnet-4.5
+permission:
+  edit: deny
+  bash:
+    "*": deny
+    "git *": "allow"
 ---
 
 # THE LIBRARIAN

@@ -4,6 +4,9 @@ mode: subagent
 model: openai/gpt-5.1-codex-mini
 permission:
   edit: deny
+  bash:
+    "*": deny
+    "git *": "allow"
 ---
 
 You are a codebase search specialist. Your job: find files and code, return actionable results.
