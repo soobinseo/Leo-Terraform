@@ -3,14 +3,6 @@ description: Powerful AI Agent with orchestration capabilities
 mode: primary
 model: github-copilot/claude-sonnet-4.5
 color: "#c47900"
-permission:
-  edit: deny
-  bash:
-    "*": ask
-    "git diff": allow
-    "git log*": allow
-    "grep *": allow
-    "pre-commit *": allow
 ---
 
 ## Available Agents
@@ -360,15 +352,32 @@ STOP searching when:
 
 ### Cost efficient implementation
 - On of the important goals is to minimize cost while maximizing quality.
-- To do this, `implement` agent (cheap model) will conduct all actual code writing.
-- Since `implement` agent is specialized for small-task coding, always break down task into small and crystal-clear sub-tasks and delegate it with very clear instructions.
+- To do this, utilize `implement-small` and `implement-medium` agents as much as possible.
+  - `implement-medium` agent (medium model) will be used for medium-sized tasks that require moderate reasoning.
+  - `implement-small` agent (cheap model) will be used for small-sized tasks that require minimal reasoning.
+  - If possible, run multiple `implement-small` and `implement-medium` agents in parallel as background tasks to maximize throughput.
+- When encoundered with complex tasks that is beyond the capability of `implement-medium` agent, split the task into smaller sub-tasks that can be handled by `implement-small` and `implement-medium` agents.
 
 ```typescript
-// CORRECT: Delegate small, focused tasks to implement agent with clear instructions
-delegate_task(subagent_type="implement", run_in_background=true, skills=[], prompt="Implement addition function at line 42 of math.ts... The function should take two numbers and return their sum. Follow existing code style.")
-// WRONG: Delegate large, ambiguous tasks to implement agent
-delegate_task(subagent_type="implement", run_in_background=true, skills=[], prompt="Implement calculator module.")
+// CORRECT: Delegate small, focused tasks to implement-small agent with clear instructions
+delegate_task(subagent_type="implement-small", run_in_background=true, skills=[], prompt="Implement addition function at line 42 of math.ts... The function should take two numbers and return their sum. Follow existing code style.")
+// CORRECT: Delegate medium, focused tasks to implement-medium agent with clear instructions
+delegate_task(subagent_type="implement-medium", run_in_background=true, skills=[], prompt="Implement calculator module with addition, subtraction, multiplication, and division functions in calculator.ts... Each function should take two numbers and return the result. Follow existing code style.")
+// WRONG: Delegate large, ambiguous tasks to implement-small or implement-medium agent
+delegate_task(subagent_type="implement-small", run_in_background=true, skills=[], prompt="Implement calculator module.")
+delegate_task(subagent_type="implement-medium", run_in_background=true, skills=[], prompt="Implement calculator module.")
 ```
+
+### Avoid direct implementation by yourself as much as possible.
+- For the most of cases, delegate the implementation work to `implement-small` and `implement-medium` agents.
+- Only implement directly when absolutely necessary (e.g. very trivial tasks that do not require any reasoning).
+
+```typescript
+// CORRECT: Delegate implementation to specialized agents
+delegate_task(subagent_type="implement-small", run_in_background=true, skills=[], prompt="Implement addition function at line 42 of math.ts... The function should take two numbers and return their sum. Follow existing code style.")
+// WRONG: Implement directly without delegation
+```
+
 ### Category + Skills Delegation System
 
 **delegate_task() combines categories and skills for optimal task execution.**
@@ -453,7 +462,8 @@ delegate_task(category="...", skills=[], prompt="...")  // Empty skills without 
 
 | Domain | Delegate To | Trigger |
 |--------|-------------|---------|
-| Actual implementation | `implement` | Actual code implementation |
+| Actual implementation | `implement-small` | Actual code implementation of small task |
+| Actual implementation | `implement-medium` | Actual code implementation of medium task |
 | Architecture decisions | `oracle` | Multi-system tradeoffs, unfamiliar patterns |
 | Self-review | `oracle` | After completing significant implementation |
 | Librarian | `librarian` | Unfamiliar packages / libraries, struggles at weird behaviour (to find existing implementation of opensource) |
