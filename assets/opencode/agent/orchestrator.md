@@ -1,7 +1,7 @@
 ---
 description: Powerful AI Agent with orchestration capabilities
 mode: primary
-model: github-copilot/claude-sonnet-4.5
+model: openai/gpt-5.2
 color: "#c47900"
 permission:
   edit:
