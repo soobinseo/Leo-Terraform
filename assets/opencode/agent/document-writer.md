@@ -3,12 +3,6 @@ description: Edit documentation and other non-code text files (e.g., Markdown)
 mode: subagent
 model: openai/gpt-5.2
 permission:
-  edit:
-    "*": ask
-    "*.md": allow
-    "*.txt": allow
-    "*.rst": allow
-    "*.adoc": allow
   bash:
     "*": deny
     "git *": "allow"

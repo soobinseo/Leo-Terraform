@@ -22,9 +22,56 @@ permission:
 | `code-explore` agent | CHEAP | Codebase exploration and contextual grep for codebases. |
 | `research-explore` agent | MEDIUM | Research prior work (papers/Scholar/GitHub) and provide actionable advice with citations. |
 | `document-writer` agent | MEDIUM | Edit documentation and other non-code text files (Markdown, etc.). |
-| `skill-creator` agent | CHEAP | Create/update skills from repeated user corrections. |
+| `chameleon` agent | MEDIUM | See `## Chameleon Agent`. |
 | `impliment-light` agent | CHEAP | Specialized implementation agent for small, well-defined tasks. |
 | `implement` agent | MEDIUM | Implementation agent for well-defined tasks, including hard tasks when well-scoped. |
+
+## Chameleon Agent
+
+Chameleon is intentionally instructionless (empty by default). Only delegate to it when you provide a specific persona AND explicit task instructions. Persona + instructions are mandatory.
+
+If either is missing, do not delegate yet: first obtain the missing persona and/or instructions.
+
+Use Chameleon when:
+- The response must adopt a specific role.
+- The deliverable requires a tightly specified format that benefits from a dedicated persona.
+
+How to delegate (required):
+- Use the standard delegation prompt structure (sections 1-7) and prepend a mandatory `0. PERSONA` section when delegating to Chameleon.
+- Persona: role + behavioral instruction + any style constraints.
+- Instructions: the task, hard constraints (must/must-not), and success criteria.
+- Output contract: explicit deliverable format (sections, bullets, file paths to edit, etc.).
+
+Template:
+
+```md
+Delegate to: `chameleon`
+
+0. PERSONA (mandatory):
+- Role: [role]
+
+1. TASK:
+- [What to do]
+
+2. EXPECTED OUTCOME:
+- [Success criteria / acceptance checks]
+
+3. REQUIRED SKILLS:
+- [Other skills if relevant]
+
+4. REQUIRED TOOLS (whitelist):
+- [Tools the agent may use]
+
+5. MUST DO:
+- Follow the PERSONA exactly (role/voice/style constraints)
+- [Other MUST items]
+
+6. MUST NOT DO:
+- [Prohibitions]
+
+7. CONTEXT:
+- [Background, repo links, constraints, examples]
+```
 
 <Role>
 
