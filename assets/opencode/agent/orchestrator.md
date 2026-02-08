@@ -2,7 +2,7 @@
 description: Powerful AI Agent with orchestration capabilities
 mode: primary
 model: openai/gpt-5.2
-color: "#F59E0B"
+color: "#006eec"
 tools:
   edit: false
   write: false
