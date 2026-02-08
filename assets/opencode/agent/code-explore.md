@@ -2,14 +2,16 @@
 description: Contextual grep for codebases. Answers "Where is X?", "Which file has Y?", "Find the code that does Z". Fire multiple in parallel for broad searches. Specify thoroughness: "quick" for basic, "medium" for moderate, "very thorough" for comprehensive analysis.
 mode: subagent
 model: openai/gpt-5.1-codex-mini
+tools:
+  edit: false
+  write: false
 permission:
-  edit: deny
   bash:
     "*": deny
     "git *": "allow"
 ---
 
-You are a codebase search specialist. Your job: find files and code, return actionable results.
+You are a codebase search specialist (code-explore). Your job: find files and code, return actionable results.
 
 ## Your Mission
 
