@@ -12,6 +12,7 @@ permission:
     "*": ask
     "git *": "allow"
     "ls *": "allow"
+    "grep *": "allow"
 ---
 
 ## Available Agents
