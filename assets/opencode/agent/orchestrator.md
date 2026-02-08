@@ -209,6 +209,7 @@ Return to Phase 0 (Intent Gate) and clarify the user's intent again when:
 
 ### Implementation
 - Delegate all implementation job to `impliment-light`, `implement`, and `document-writer` agents.
+- Anti-pattern (BLOCKING): doing direct file changes yourself via `Edit`, `Write`, or `apply_patch` (the orchestrator must delegate implementation work).
 - `impliment-light` agent handles small, surgical changes.
 - `implement` agent can handle hard tasks when well-scoped; still split into logically separable units when possible.
 - `document-writer` agent handles documentation and other non-code text edits.
