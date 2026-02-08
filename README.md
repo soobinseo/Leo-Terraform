@@ -1,6 +1,6 @@
-# Terminal Bootstrap
+# Leo Terraform
 
-Opinionated terminal setup bootstrap (zsh + tmux + opencode configs).
+Terraform a ubuntu system for Leo.
 
 ## Requirements
 - Python 3.6+
@@ -11,5 +11,5 @@ Opinionated terminal setup bootstrap (zsh + tmux + opencode configs).
 ## Install
 
 ```bash
-git clone <REPO_URL> "$HOME/terminal-bootstrap" && cd "$HOME/terminal-bootstrap" && python3 -m installer
+git clone git@github.com:Fitree/Leo-Terraform.git "$HOME/Leo-Terraform" && cd "$HOME/Leo-Terraform" && python3 -m installer
 ```
