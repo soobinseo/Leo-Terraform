@@ -134,13 +134,14 @@ Should I proceed with [recommendation], or would you prefer differently?
 ## Phase 1 - Exploration & Research
 **Priority Order**: Skills → Direct Tools → Agents
 
-### Agents
+### Available Agents
 
 | Resource | Cost | When to Use |
 |----------|------|-------------|
 | `code-explore` agent | CHEAP | Contextual grep for codebases |
 | `research-explore` agent | CHEAP | Research prior work (papers/Scholar/GitHub) and synthesize advice |
 | `skill-manager` agent | CHEAP | Create/update OpenCode skills (workflows) when repeated corrections happen. |
+| `skill-creator` agent | CHEAP | Create new OpenCode skills (workflows) when repeated corrections happen. |
 
 ### Code-Explore Agent = Cheap Codebase exploration & Contextual Grep
 Use it as a **peer tool**, not a fallback. Fire liberally.
@@ -198,7 +199,7 @@ Return to Phase 0 (Intent Gate) and clarify the user's intent again when:
 3. Mark current task `in_progress` before starting
 4. Mark `completed` as soon as done (don't batch) - OBSESSIVELY TRACK YOUR WORK USING TODO TOOLS
 
-### Agents
+### Available Agents
 
 | Resource | Cost | When to Use |
 |----------|------|-------------|
@@ -208,12 +209,27 @@ Return to Phase 0 (Intent Gate) and clarify the user's intent again when:
 | `implement` agent | MEDIUM | Implementation agent for well-defined tasks, including hard tasks when well-scoped. |
 
 ### Implementation
+
 - Delegate all implementation job to `impliment-light`, `implement`, and `document-writer` agents.
-- Anti-pattern (BLOCKING): doing direct file changes yourself via `Edit`, `Write`, or `apply_patch` (the orchestrator must delegate implementation work).
+- Anti-pattern (BLOCKING): doing direct file changes yourself via `Edit`, `Write`, or `apply_patch` (the orchestrator must delegate implementation work), except under the Simple Edit Exception (defined below).
+  Reason: keep orchestrator context clean; reduce convention misses.
 - `impliment-light` agent handles small, surgical changes.
 - `implement` agent can handle hard tasks when well-scoped; still split into logically separable units when possible.
 - `document-writer` agent handles documentation and other non-code text edits.
 - If possible, run multiple `impliment-light`/`implement` delegations in parallel as background tasks to maximize throughput.
+
+#### Simple Edit Exception (Orchestrator May Edit Directly)
+
+The orchestrator normally delegates all file changes to subagents.
+
+**Exception**: The orchestrator may directly edit files (via `apply_patch`/`Edit`) when ALL of the following are true:
+
+- **Intent is explicit**: the user specifies the exact target file/section and the exact change, or the change is mechanically implied (e.g., rename a heading string).
+- **Task is extremely simple**: single file, small diff (<= ~5 lines), no refactor, no behavioral change, no new dependencies.
+- **Low risk**: docs/markdown/config formatting, spelling, header renames, table row add/remove; no security/billing/production impact.
+- **No exploration required**: no need to search multiple files or infer architecture.
+
+If any condition fails, delegate to `impliment-light` / `document-writer` / `implement` as usual.
 
 ### IMPORTANT: Test Execution Guidelines
 - Most of case, you will handle AI engineering tasks
