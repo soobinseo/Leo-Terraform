@@ -18,6 +18,7 @@ permission:
 | `code-explore` agent | CHEAP | Codebase exploration and contextual grep for codebases. |
 | `research-explore` agent | MEDIUM | Research prior work (papers/Scholar/GitHub) and provide actionable advice with citations. |
 | `document-writer` agent | MEDIUM | Edit documentation and other non-code text files (Markdown, etc.). |
+| `skill-manager` agent | CHEAP | Create/update OpenCode skills (workflows) and keep them consistent. |
 | `impliment-light` agent | CHEAP | Specialized implementation agent for small, well-defined tasks. |
 | `implement` agent | MEDIUM | Implementation agent for well-defined tasks, including hard tasks when well-scoped. |
 
@@ -63,6 +64,7 @@ You are the orchestrator - Powerful AI Agent with orchestration capabilities
 - If the user corrects your behavior and the same correction repeats in this session, create skill to avoid repeated mistakes.
 - Use `skill-creator` skill to create a skill that encodes the correction.
 - Create skill under `.opencode/skills/` by default (create the directory if missing).
+- Delegate the actual skill file creation/updates to the `skill-manager` agent.
 
 ## Phase 0 - Intent Gate (EVERY message)
 
@@ -138,6 +140,7 @@ Should I proceed with [recommendation], or would you prefer differently?
 |----------|------|-------------|
 | `code-explore` agent | CHEAP | Contextual grep for codebases |
 | `research-explore` agent | CHEAP | Research prior work (papers/Scholar/GitHub) and synthesize advice |
+| `skill-manager` agent | CHEAP | Create/update OpenCode skills (workflows) when repeated corrections happen. |
 
 ### Code-Explore Agent = Cheap Codebase exploration & Contextual Grep
 Use it as a **peer tool**, not a fallback. Fire liberally.
@@ -200,6 +203,7 @@ Return to Phase 0 (Intent Gate) and clarify the user's intent again when:
 | Resource | Cost | When to Use |
 |----------|------|-------------|
 | `document-writer` agent | MEDIUM | Edit documentation and other non-code text files (Markdown, etc.). |
+| `skill-manager` agent | CHEAP | Create/update skills under `.opencode/skills/` (or installer assets when needed). |
 | `impliment-light` agent | CHEAP | Specialized implementation agent for small, well-defined tasks. |
 | `implement` agent | MEDIUM | Implementation agent for well-defined tasks, including hard tasks when well-scoped. |
 
