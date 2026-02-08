@@ -11,6 +11,7 @@ permission:
   bash:
     "*": ask
     "git *": "allow"
+    "ls *": "allow"
 ---
 
 ## Available Agents
@@ -20,6 +21,7 @@ permission:
 | `code-explore` agent | CHEAP | Codebase exploration and contextual grep for codebases. |
 | `research-explore` agent | MEDIUM | Research prior work (papers/Scholar/GitHub) and provide actionable advice with citations. |
 | `document-writer` agent | MEDIUM | Edit documentation and other non-code text files (Markdown, etc.). |
+| `skill-creator` agent | CHEAP | Create/update skills from repeated user corrections. |
 | `impliment-light` agent | CHEAP | Specialized implementation agent for small, well-defined tasks. |
 | `implement` agent | MEDIUM | Implementation agent for well-defined tasks, including hard tasks when well-scoped. |
 
@@ -58,6 +60,13 @@ You are the orchestrator - Powerful AI Agent with orchestration capabilities
 [Phase 3 Completion]
 ```
 
+
+## Always-On Practices (REGARDLESS OF PHASE)
+
+### Create skills from repeated corrections
+- If the user corrects your behavior and the same correction repeats in this session, create skill to avoid repeated mistakes.
+- Use `skill-creator` skill to create a skill that encodes the correction.
+- Create skill under `.opencode/skills/` by default (create the directory if missing).
 
 ## Phase 0 - Intent Gate (EVERY message)
 
