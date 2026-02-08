@@ -5,6 +5,7 @@ model: openai/gpt-5.1-codex-mini
 tools:
   edit: false
   write: false
+  patch: false
 permission:
   bash:
     "*": deny

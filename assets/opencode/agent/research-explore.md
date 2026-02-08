@@ -5,6 +5,7 @@ model: openai/gpt-5.2
 tools:
   edit: false
   write: false
+  patch: false
 permission:
   bash:
     "*": deny

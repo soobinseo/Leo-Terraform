@@ -6,6 +6,7 @@ color: "#006eec"
 tools:
   edit: false
   write: false
+  patch: false
 permission:
   bash:
     "*": ask
