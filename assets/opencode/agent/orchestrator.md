@@ -3,10 +3,6 @@ description: Powerful AI Agent with orchestration capabilities
 mode: primary
 model: openai/gpt-5.2
 color: "#006eec"
-tools:
-  edit: false
-  write: false
-  patch: false
 permission:
   bash:
     "*": ask
