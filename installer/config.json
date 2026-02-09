@@ -42,6 +42,10 @@
                     "dst": "~/.config/opencode/agent"
                 },
                 {
+                    "src": "assets/opencode/skills",
+                    "dst": "~/.config/opencode/skills"
+                },
+                {
                     "src": "assets/opencode/plugins",
                     "dst": "~/.config/opencode/plugins"
                 }
