@@ -11,7 +11,7 @@ Bootstrap terminal tooling and dotfiles (zsh + tmux + git + opencode).
 ## Install
 
 ```bash
-git clone git@github.com:Fitree/Leo-Terraform.git "$HOME/Leo-Terraform" && cd "$HOME/Leo-Terraform" && python3 -m installer
+git clone git@github.com:soobinseo/Leo-Terraform.git "$HOME/Leo-Terraform" && cd "$HOME/Leo-Terraform" && python3 -m installer
 ```
 
 ## What This Installer Installs
